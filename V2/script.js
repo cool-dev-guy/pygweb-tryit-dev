@@ -11,6 +11,23 @@ var iframeHtml = `
 ${code}
 # --></script></html>
 <style>
+*{
+scrollbar-color: #888 #f1f1f1;
+scrollbar-color: #ce1414 #000;
+}
+::-webkit-scrollbar {
+width: 5px;
+height: 5px;
+}
+::-webkit-scrollbar-track {
+background: #000;
+}
+::-webkit-scrollbar-thumb {
+background: #cf1414;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #ff6666;
+}
 body{
 background:#111;
 margin:0px;
