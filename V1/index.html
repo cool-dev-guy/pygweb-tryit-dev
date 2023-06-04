@@ -1,15 +1,44 @@
-<html><head><meta charset="utf-8"></head><script src="https://pygame-web.github.io/archives/0.5/pythons.js" type=module id="site" data-src="fs,vtx,gui" async defer>#<!--
+<!-- VERSION 1 CODE NOT WORKING -->
 
+
+<!-- VERSION 2 CODE WORKING -->
+<html><script src="https://pygame-web.github.io/archives/0.5/pythons.js" type="module" id="__main__" data-src="gui,vtx" async="" defer="">#<!--
 import sys
-import platform
+import os
 import asyncio
 
+__ANDROID__ = hasattr(sys, "getandroidapilevel")
+__EMSCRIPTEN__ = hasattr(sys, "_emscripten_info")
+
+import pygame
+
+pygame.init()
+
+if __ANDROID__:
+    screen = pygame.display.set_mode((640, 360), pygame.SCALED | pygame.FULLSCREEN)
+else:
+    screen = pygame.display.set_mode((640, 360), 0)
+
+
 async def main():
-    for i in range(10):
-        print("hi")
-        await asyncio.sleep(1)
+    global screen
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running=False
+        
+        # print('hellow')
+        screen.fill((255, 255, 0))  # Fill the screen with white
+        pygame.display.flip()  # Update the screen
+        await asyncio.sleep(0)
+    # Quit the game
+    pygame.quit()
+
+        
+
 
 asyncio.run(main())
 
-# do not change/remove the following comment it is for clearly separating python code from html body
+
 # --></script></html>
