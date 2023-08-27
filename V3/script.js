@@ -14,7 +14,6 @@ ${code}
 # --></script></html>
 <style>
 *{
-font-family:sans-serif;
 scrollbar-color: #888 #f1f1f1;
 scrollbar-color: #ce1414 #000;
 }
